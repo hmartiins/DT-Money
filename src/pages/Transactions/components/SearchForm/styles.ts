@@ -36,10 +36,14 @@ export const SearchFormContainer = styled.form`
     font-weight: bold;
 
     transition: background-color 0.2s, color 0.2s, border 0.2s;
-    &:hover {
+    &:not(:disabled):hover {
       background: ${(props) => props.theme["green-500"]};
       border: 1px solid ${(props) => props.theme["green-500"]};
       color: ${(props) => props.theme["white"]};
+    }
+
+    &:disabled {
+      opacity: 0.7;
     }
   }
 `;
