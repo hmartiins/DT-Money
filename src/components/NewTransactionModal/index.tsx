@@ -12,6 +12,8 @@ import {
   TransactionType,
   TransactionTypeButton,
 } from "./styles";
+import { useContext } from "react";
+import { TransactionsContext } from "../../contexts/TransactionsContexts";
 
 const newTransactionFormSchema = zod.object({
   description: zod.string(),
@@ -23,11 +25,14 @@ const newTransactionFormSchema = zod.object({
 type NewTransactionFormInputs = zod.infer<typeof newTransactionFormSchema>;
 
 export function NewTransactionModal() {
+  const { createTransaction } = useContext(TransactionsContext);
+
   const {
     control,
     register,
     handleSubmit,
     formState: { isSubmitted },
+    reset,
   } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema),
     defaultValues: {
@@ -36,8 +41,9 @@ export function NewTransactionModal() {
   });
 
   async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
-    console.log(data);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await createTransaction(data);
+
+    reset();
   }
 
   return (

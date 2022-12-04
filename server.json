@@ -23,6 +23,22 @@
       "category": "Educação",
       "price": 1700,
       "createdAt": "2022-11-26T23:36:34.526Z"
+    },
+    {
+      "description": "Creattor Site",
+      "category": "Venda",
+      "price": 10000,
+      "type": "income",
+      "createdAt": "2022-12-04T19:59:06.189Z",
+      "id": 3
+    },
+    {
+      "description": "Jeronimo",
+      "category": "Alimentação",
+      "price": 39,
+      "type": "outcome",
+      "createdAt": "2022-12-04T20:10:11.542Z",
+      "id": 4
     }
   ]
 }
